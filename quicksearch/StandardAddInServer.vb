@@ -76,10 +76,10 @@ Namespace quicksearch
             '** Sample to illustrate creating a button on a new panel of the Tools tab of the Part ribbon.
 
             '' Get the part ribbon.
-            Dim partRibbon As Ribbon = g_inventorApplication.UserInterfaceManager.Ribbons.Item("Part")
+            Dim partRibbon As Ribbon = g_inventorApplication.UserInterfaceManager.Ribbons.Item("ZeroDoc")
 
             '' Get the "Tools" tab.
-            Dim toolsTab As RibbonTab = partRibbon.RibbonTabs.Item("id_TabTools")
+            Dim toolsTab As RibbonTab = partRibbon.RibbonTabs.Item("id_GetStarted")
 
             '' Create a new panel.
             Dim customPanel As RibbonPanel = toolsTab.RibbonPanels.Add("Quick Seach", "QS", AddInClientID)
@@ -95,7 +95,7 @@ Namespace quicksearch
 
         ' Sample handler for the button.
         Private Sub m_sampleButton_OnExecute(Context As NameValueMap) Handles m_sampleButton.OnExecute
-            MsgBox("Button was clicked.")
+            main.showForm()
         End Sub
 #End Region
 

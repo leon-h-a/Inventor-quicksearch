@@ -93,6 +93,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.vb" />
+    <Compile Include="files\form.Designer.vb">
+      <DependentUpon>form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="files\form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="files\main.vb" />
     <Compile Include="StandardAddInServer.vb" />
   </ItemGroup>
   <ItemGroup>
@@ -136,6 +143,11 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="files\form.resx">
+      <DependentUpon>form.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
