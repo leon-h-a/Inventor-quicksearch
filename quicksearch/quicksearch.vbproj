@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.vb" />
+    <Compile Include="files\models.vb" />
     <Compile Include="files\form.Designer.vb">
       <DependentUpon>form.vb</DependentUpon>
     </Compile>
