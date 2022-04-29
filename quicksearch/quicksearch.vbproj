@@ -111,7 +111,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Readme.txt" />
+    <None Include="README.md" />
+    <None Include="Readme.txt.old" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="My Project\" />
