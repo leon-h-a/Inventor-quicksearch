@@ -32,7 +32,7 @@ Partial Class form
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(18, 58)
+        Me.TextBox1.Location = New System.Drawing.Point(273, 61)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(244, 26)
@@ -89,7 +89,7 @@ Partial Class form
         Me.projectsList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.projectsList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.projectsList.FormattingEnabled = True
-        Me.projectsList.Location = New System.Drawing.Point(272, 57)
+        Me.projectsList.Location = New System.Drawing.Point(18, 59)
         Me.projectsList.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.projectsList.Name = "projectsList"
         Me.projectsList.Size = New System.Drawing.Size(244, 28)
