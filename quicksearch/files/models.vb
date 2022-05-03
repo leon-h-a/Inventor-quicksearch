@@ -1,36 +1,81 @@
-﻿Public Class oFolder
+﻿Imports System.Text.RegularExpressions
 
-    Private longNameValue As String
-    Private shortNameValue As String
-    Private childObjectsCollection As New Collection()
-
-    Public Property longName() As String
-        Get
-            Return longNameValue
-        End Get
+Public Class oFile
+    Private pathValue As String
+    Private nameValue As String
+    Private indentationValue As Integer
+    Public Property Path() As String
         Set(value As String)
-            longNameValue = value
+            pathValue = value
         End Set
+        Get
+            Return pathValue
+        End Get
     End Property
 
-    Public Property shortName() As String
-        Get
-            Return shortNameValue
-        End Get
+    Public Property Name() As String
         Set(value As String)
-            shortNameValue = value
+            Dim objectName As String
+            objectName = Regex.Match(value, "[^\\]+$").Value
+            nameValue = objectName
         End Set
-    End Property
-    Public WriteOnly Property Write() As Collection
-        Set(value As Collection)
-            childObjectsCollection.Add(value)
-        End Set
-    End Property
-
-    Public ReadOnly Property Read() As Collection
         Get
-            Return childObjectsCollection
+            Return nameValue
         End Get
     End Property
+
+    Public Property Increment() As Integer
+        Set(value As Integer)
+            indentationValue = value
+        End Set
+        Get
+            Return indentationValue
+        End Get
+    End Property
+End Class
+
+Public Class oFolder
+    Private pathValue As String
+    Private nameValue As String
+    Private indentationValue As Integer
+    Private filesList As New Collection()
+
+    Public Property Path() As String
+        Set(value As String)
+            pathValue = value
+        End Set
+        Get
+            Return pathValue
+        End Get
+    End Property
+
+    Public Property Name() As String
+        Set(value As String)
+            Dim objectName As String
+            objectName = Regex.Match(value, "[^\\]+$").Value
+            nameValue = objectName
+        End Set
+        Get
+            Return nameValue
+        End Get
+    End Property
+
+    Public Property Increment() As Integer
+        Set(value As Integer)
+            indentationValue = value
+        End Set
+        Get
+            Return indentationValue
+        End Get
+    End Property
+
+    Public Function AddFile(item As oFile)
+        filesList.Add(item)
+        Return 1
+    End Function
+
+    Public Function GetFiles()
+        Return filesList
+    End Function
 
 End Class

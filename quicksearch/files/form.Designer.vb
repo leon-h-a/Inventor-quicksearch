@@ -32,18 +32,20 @@ Partial Class form
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(12, 38)
+        Me.TextBox1.Location = New System.Drawing.Point(18, 58)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(164, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(244, 26)
         Me.TextBox1.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label1.Location = New System.Drawing.Point(9, 15)
+        Me.Label1.Location = New System.Drawing.Point(14, 23)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.Size = New System.Drawing.Size(87, 20)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "File name:"
         '
@@ -53,27 +55,31 @@ Partial Class form
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.filesList.FormattingEnabled = True
-        Me.filesList.Location = New System.Drawing.Point(12, 64)
+        Me.filesList.ItemHeight = 20
+        Me.filesList.Location = New System.Drawing.Point(18, 98)
+        Me.filesList.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.filesList.Name = "filesList"
-        Me.filesList.Size = New System.Drawing.Size(335, 537)
+        Me.filesList.Size = New System.Drawing.Size(500, 824)
         Me.filesList.TabIndex = 2
         '
         'buttonOpen
         '
-        Me.buttonOpen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.buttonOpen.Location = New System.Drawing.Point(11, 607)
+        Me.buttonOpen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonOpen.Location = New System.Drawing.Point(16, 934)
+        Me.buttonOpen.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.buttonOpen.Name = "buttonOpen"
-        Me.buttonOpen.Size = New System.Drawing.Size(165, 34)
+        Me.buttonOpen.Size = New System.Drawing.Size(248, 52)
         Me.buttonOpen.TabIndex = 3
         Me.buttonOpen.Text = "Open"
         Me.buttonOpen.UseVisualStyleBackColor = True
         '
         'buttonPlace
         '
-        Me.buttonPlace.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.buttonPlace.Location = New System.Drawing.Point(182, 607)
+        Me.buttonPlace.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonPlace.Location = New System.Drawing.Point(273, 934)
+        Me.buttonPlace.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.buttonPlace.Name = "buttonPlace"
-        Me.buttonPlace.Size = New System.Drawing.Size(165, 34)
+        Me.buttonPlace.Size = New System.Drawing.Size(248, 52)
         Me.buttonPlace.TabIndex = 4
         Me.buttonPlace.Text = "Place"
         Me.buttonPlace.UseVisualStyleBackColor = True
@@ -83,22 +89,24 @@ Partial Class form
         Me.projectsList.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.projectsList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.projectsList.FormattingEnabled = True
-        Me.projectsList.Location = New System.Drawing.Point(181, 37)
+        Me.projectsList.Location = New System.Drawing.Point(272, 57)
+        Me.projectsList.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.projectsList.Name = "projectsList"
-        Me.projectsList.Size = New System.Drawing.Size(164, 21)
+        Me.projectsList.Size = New System.Drawing.Size(244, 28)
         Me.projectsList.TabIndex = 5
         '
         'form
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(357, 653)
+        Me.ClientSize = New System.Drawing.Size(536, 1005)
         Me.Controls.Add(Me.projectsList)
         Me.Controls.Add(Me.buttonPlace)
         Me.Controls.Add(Me.buttonOpen)
         Me.Controls.Add(Me.filesList)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "form"
         Me.Text = "Quick Search"
         Me.ResumeLayout(False)

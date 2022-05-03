@@ -29,7 +29,7 @@ Namespace quicksearch
             'Dim largeIcon As stdole.IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.YourBigImage)
             'Dim smallIcon As stdole.IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.YourSmallImage)
             Dim controlDefs As Inventor.ControlDefinitions = g_inventorApplication.CommandManager.ControlDefinitions
-            m_sampleButton = controlDefs.AddButtonDefinition("Command Name", "Internal Name", CommandTypesEnum.kShapeEditCmdType, AddInClientID)
+            m_sampleButton = controlDefs.AddButtonDefinition("Search Start", "searchstart", CommandTypesEnum.kShapeEditCmdType, AddInClientID)
 
             ' Add to the user interface, if it's the first time.
             If firstTime Then
@@ -79,7 +79,8 @@ Namespace quicksearch
             Dim partRibbon As Ribbon = g_inventorApplication.UserInterfaceManager.Ribbons.Item("ZeroDoc")
 
             '' Get the "Tools" tab.
-            Dim toolsTab As RibbonTab = partRibbon.RibbonTabs.Item("id_GetStarted")
+            Dim toolsTab As RibbonTab = partRibbon.RibbonTabs.Item(1)
+            'Dim toolsTab As RibbonTab = partRibbon.RibbonTabs.Item()
 
             '' Create a new panel.
             Dim customPanel As RibbonPanel = toolsTab.RibbonPanels.Add("Quick Seach", "QS", AddInClientID)
