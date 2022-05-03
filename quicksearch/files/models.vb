@@ -69,12 +69,12 @@ Public Class oFolder
         End Get
     End Property
 
-    Public Function AddFile(item As oFile)
+    Public Function AddFile(item As oFile) As Integer
         filesList.Add(item)
-        Return 1
+        Return 0
     End Function
 
-    Public Function GetFiles()
+    Public Function GetFiles() As Collection
         Return filesList
     End Function
 
