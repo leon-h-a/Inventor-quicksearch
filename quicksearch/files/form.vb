@@ -22,6 +22,7 @@ Public Class form
         'If selectedProjectIndex = -1 Then MsgBox("Select correct project name") Else projectPath = rgx.Replace(definedProjects(selectedProjectIndex + 1).FullFileName, "")
         Me.projectsList.Text = Regex.Match(g_inventorApplication.FileLocations.FileLocationsFile, "[^\\]+$").Value
         getProjectItems(rgx.Replace(g_inventorApplication.FileLocations.FileLocationsFile, ""))
+        showRecurs(folders, " ")
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
@@ -34,6 +35,7 @@ Public Class form
             Dim FileInstance As New oFile()
             FileInstance.Path = file
             FileInstance.Name = file
+            FileInstance.ParentFolder = ""
             FileInstance.Increment = 0
             topLevelFiles.Add(FileInstance)
         Next
@@ -45,14 +47,15 @@ Public Class form
             If Not directory.Contains("OldVersion") Then
                 Dim FolderInstance As New oFolder()
                 FolderInstance.Path = directory
-                FolderInstance.Name = directory
+                FolderInstance.Name = Regex.Match(directory, "[^\\]+$").Value
                 FolderInstance.Increment = indentation
 
                 For Each file In IO.Directory.GetFiles(directory)
-                    If Not directory.Contains("FNO") Or Not directory.Contains("LOG") Or Not directory.Contains("OUT") Then
+                    If Not file.Contains("FNO") And Not file.Contains("LOG") And Not file.Contains("OUT") And Not file.Contains("RSF") And Not file.Contains("nas") Then
                         Dim FileInstance As New oFile()
                         FileInstance.Path = file
                         FileInstance.Name = file
+                        FileInstance.ParentFolder = FolderInstance.Name
                         FileInstance.Increment = indentation + 1
                         FolderInstance.AddFile(FileInstance)
                     End If
@@ -68,16 +71,15 @@ Public Class form
     Public Function showRecurs(folderObject As Collection, matchingString As String) As Integer
         For Each file In topLevelFiles
             If file.Name.Contains(matchingString) Then
-                filesListView.Items.Add(file.Name, file.Path)
+                filesListView.Items.Add(file.Name, file.Path).SubItems.Add(file.ParentFolder)
             End If
         Next
 
         For Each folder In folderObject
             'filesListView.Items.Add(folder.Name).SubItems.add(folder.Path)
-
             For Each file In folder.GetFiles()
                 If file.Name.Contains(matchingString) Then
-                    filesListView.Items.Add(file.Name).subitems.add(file.Path)
+                    filesListView.Items.Add(file.Name, file.Path).subitems.add(file.ParentFolder)
                 End If
             Next
         Next

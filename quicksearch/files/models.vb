@@ -3,6 +3,7 @@
 Public Class oFile
     Private pathValue As String
     Private nameValue As String
+    Private parentFolderValue As String
     Private indentationValue As Integer
     Public Property Path() As String
         Set(value As String)
@@ -21,6 +22,14 @@ Public Class oFile
         End Set
         Get
             Return nameValue
+        End Get
+    End Property
+    Public Property ParentFolder() As String
+        Set(value As String)
+            parentFolderValue = value
+        End Set
+        Get
+            Return parentFolderValue
         End Get
     End Property
 

@@ -29,8 +29,9 @@ Partial Class form
         Me.projectsList = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.filesListView = New System.Windows.Forms.ListView()
-        Me.fileNameHeader = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.fileName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.parentFolder = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'TextBox1
@@ -102,7 +103,7 @@ Partial Class form
         Me.filesListView.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.filesListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.fileNameHeader})
+        Me.filesListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.fileName, Me.parentFolder})
         Me.filesListView.HideSelection = False
         Me.filesListView.Location = New System.Drawing.Point(18, 149)
         Me.filesListView.Name = "filesListView"
@@ -111,14 +112,19 @@ Partial Class form
         Me.filesListView.UseCompatibleStateImageBehavior = False
         Me.filesListView.View = System.Windows.Forms.View.Details
         '
-        'fileNameHeader
+        'fileName
         '
-        Me.fileNameHeader.Text = "File Name"
-        Me.fileNameHeader.Width = 500
+        Me.fileName.Text = "File Name"
+        Me.fileName.Width = 500
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'parentFolder
+        '
+        Me.parentFolder.Text = "Parent Folder"
+        Me.parentFolder.Width = 295
         '
         'form
         '
@@ -148,6 +154,7 @@ Partial Class form
     Friend WithEvents projectsList As Windows.Forms.ComboBox
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents filesListView As Windows.Forms.ListView
-    Friend WithEvents fileNameHeader As Windows.Forms.ColumnHeader
+    Friend WithEvents fileName As Windows.Forms.ColumnHeader
     Friend WithEvents OpenFileDialog1 As Windows.Forms.OpenFileDialog
+    Friend WithEvents parentFolder As Windows.Forms.ColumnHeader
 End Class
