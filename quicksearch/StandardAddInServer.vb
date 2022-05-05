@@ -26,10 +26,10 @@ Namespace quicksearch
             ' TODO: Add button definitions.
 
             ' Sample to illustrate creating a button definition.
-            'Dim largeIcon As stdole.IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.YourBigImage)
-            'Dim smallIcon As stdole.IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.YourSmallImage)
+            Dim largeIcon As stdole.IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.Resources.Q)
+            Dim smallIcon As stdole.IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.Resources.Q)
             Dim controlDefs As Inventor.ControlDefinitions = g_inventorApplication.CommandManager.ControlDefinitions
-            m_sampleButton = controlDefs.AddButtonDefinition("Search Start", "searchstart", CommandTypesEnum.kShapeEditCmdType, AddInClientID)
+            m_sampleButton = controlDefs.AddButtonDefinition("", "searchstart", CommandTypesEnum.kShapeEditCmdType, AddInClientID, , "Start search", largeIcon, largeIcon)
 
             ' Add to the user interface, if it's the first time.
             If firstTime Then
@@ -75,18 +75,18 @@ Namespace quicksearch
 
             '** Sample to illustrate creating a button on a new panel of the Tools tab of the Part ribbon.
 
-            '' Get the part ribbon.
-            Dim partRibbon As Ribbon = g_inventorApplication.UserInterfaceManager.Ribbons.Item("ZeroDoc")
+            '' Get ribbons.
+            Dim gettingStarted As Ribbon = g_inventorApplication.UserInterfaceManager.Ribbons.Item("ZeroDoc")
+            'Dim As Ribbon = g_inventorApplication.UserInterfaceManager.Ribbons.Item("ZeroDoc")
 
             '' Get the "Tools" tab.
-            Dim toolsTab As RibbonTab = partRibbon.RibbonTabs.Item(1)
-            'Dim toolsTab As RibbonTab = partRibbon.RibbonTabs.Item()
+            Dim toolsTab As RibbonTab = gettingStarted.RibbonTabs.Item(1)
 
             '' Create a new panel.
             Dim customPanel As RibbonPanel = toolsTab.RibbonPanels.Add("Quick Seach", "QS", AddInClientID)
 
             '' Add a button.
-            customPanel.CommandControls.AddButton(m_sampleButton)
+            customPanel.CommandControls.AddButton(m_sampleButton, True)
         End Sub
 
         Private Sub m_uiEvents_OnResetRibbonInterface(Context As NameValueMap) Handles m_uiEvents.OnResetRibbonInterface

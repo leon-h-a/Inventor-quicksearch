@@ -76,10 +76,11 @@ Public Class form
         Next
 
         For Each folder In folderObject
-            'filesListView.Items.Add(folder.Name).SubItems.add(folder.Path)
             For Each file In folder.GetFiles()
                 If file.Name.Contains(matchingString) Then
-                    filesListView.Items.Add(file.Name, file.Path).subitems.add(file.ParentFolder)
+                    Dim item As Windows.Forms.ListViewItem = filesListView.Items.Add(file.Name)
+                    item.SubItems.Add(file.parentFolder)
+                    item.SubItems.Add(file.Path)
                 End If
             Next
         Next
@@ -87,18 +88,32 @@ Public Class form
     End Function
 
     Private Sub buttonOpen_Click(sender As Object, e As EventArgs) Handles buttonOpen.Click
-        'Dim selectedFiles = New Collection()
 
-        'For Each item In filesList.SelectedItems
-        '    selectedFiles.Add(item)
+        Dim selectedItems As Windows.Forms.ListView.SelectedListViewItemCollection
+        selectedItems = filesListView.SelectedItems()
+
+        For Each item In selectedItems
+            If item.subitems(2).Text.Contains(".ipt") Or item.subitems(2).Text.Contains(".iam") Or item.subitems(2).Text.Contains(".ipn") Or item.subitems(2).Text.Contains(".dwg") Then
+                g_inventorApplication.Documents.Open(item.subitems(2).Text)
+            Else
+                Process.Start(item.subitems(2).Text)
+            End If
+        Next
+
+        'For Each item In selectedItems
+        '    If item.subitems(2).Text.Contains(".pdf") Then
+        '        Process.Start(item.subitems(2).Text)
+        '    ElseIf item.subitems(2).Text.Contains(".ipt") Or item.subitems(2).Text.Contains(".iam") Or item.subitems(2).Text.Contains(".ipn") Or item.subitems(2).Text.Contains(".dwg") Then
+        '        g_inventorApplication.Documents.Open(item.subitems(2).Text)
+        '    Else
+        '        MsgBox("Wrong file format!")
+        '    End If
         'Next
 
-        'For Each item In selectedFiles
-        '    MsgBox(item.Name)
-        'Next
+        Me.Close()
     End Sub
 
     Private Sub buttonPlace_Click(sender As Object, e As EventArgs) Handles buttonPlace.Click
-
+        MsgBox(g_inventorApplication.ActiveDocumentType) '12297
     End Sub
 End Class
