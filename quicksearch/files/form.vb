@@ -7,7 +7,12 @@ Public Class form
     Dim topLevelFiles As New Collection()
 
     Private Sub form_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        ' TODO: implement multiple projects
+
+        If Not g_inventorApplication.ActiveDocumentType = 12291 Then
+            buttonPlace.Enabled = False
+        End If
+
+        ' todo: implement multiple projects
         'Get all project file names and append to drowdown select menu (preselected project is the currently active project)
         'For Each project In g_inventorApplication.DesignProjectManager.DesignProjects
         '    MsgBox(project.Name)
@@ -100,20 +105,10 @@ Public Class form
             End If
         Next
 
-        'For Each item In selectedItems
-        '    If item.subitems(2).Text.Contains(".pdf") Then
-        '        Process.Start(item.subitems(2).Text)
-        '    ElseIf item.subitems(2).Text.Contains(".ipt") Or item.subitems(2).Text.Contains(".iam") Or item.subitems(2).Text.Contains(".ipn") Or item.subitems(2).Text.Contains(".dwg") Then
-        '        g_inventorApplication.Documents.Open(item.subitems(2).Text)
-        '    Else
-        '        MsgBox("Wrong file format!")
-        '    End If
-        'Next
-
         Me.Close()
     End Sub
 
     Private Sub buttonPlace_Click(sender As Object, e As EventArgs) Handles buttonPlace.Click
-        MsgBox(g_inventorApplication.ActiveDocumentType) '12297
+        ' todo: place file into assembly
     End Sub
 End Class

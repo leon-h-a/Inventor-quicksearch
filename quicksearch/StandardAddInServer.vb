@@ -71,22 +71,34 @@ Namespace quicksearch
         ' Sub where the user-interface creation is done.  This is called when
         ' the add-in loaded and also if the user interface is reset.
         Private Sub AddToUserInterface()
+
+            Dim homeRibbon = g_inventorApplication.UserInterfaceManager.Ribbons("ZeroDoc").RibbonTabs.Add("Quick Search", "QStab", AddInClientID)
+            Dim homePanel As RibbonPanel = homeRibbon.RibbonPanels.Add("Quick Search", "QSpanel", AddInClientID, "", False)
+            homePanel.CommandControls.AddButton(m_sampleButton, True)
+
+            Dim partRibbon = g_inventorApplication.UserInterfaceManager.Ribbons("Part").RibbonTabs.Add("Quick Search", "QStab", AddInClientID)
+            Dim partPanel As RibbonPanel = partRibbon.RibbonPanels.Add("Quick Search", "QSpanel", AddInClientID, "", False)
+            partPanel.CommandControls.AddButton(m_sampleButton, True)
+
+            Dim assemblyRibbon = g_inventorApplication.UserInterfaceManager.Ribbons("Assembly").RibbonTabs.Add("Quick Search", "QStab", AddInClientID)
+            Dim assemblyPanel As RibbonPanel = assemblyRibbon.RibbonPanels.Add("Quick Search", "QSpanel", AddInClientID, "", False)
+            assemblyPanel.CommandControls.AddButton(m_sampleButton, True)
+
             ' This is where you'll add code to add buttons to the ribbon.
 
             '** Sample to illustrate creating a button on a new panel of the Tools tab of the Part ribbon.
 
-            '' Get ribbons.
-            Dim gettingStarted As Ribbon = g_inventorApplication.UserInterfaceManager.Ribbons.Item("ZeroDoc")
-            'Dim As Ribbon = g_inventorApplication.UserInterfaceManager.Ribbons.Item("ZeroDoc")
+            ''' Get ribbons.
+            'Dim gettingStarted As Ribbon = g_inventorApplication.UserInterfaceManager.Ribbons.Item("ZeroDoc")
 
-            '' Get the "Tools" tab.
-            Dim toolsTab As RibbonTab = gettingStarted.RibbonTabs.Item(1)
+            ''' Get the "Tools" tab.
+            'Dim toolsTab As RibbonTab = gettingStarted.RibbonTabs.Item(1)
 
-            '' Create a new panel.
-            Dim customPanel As RibbonPanel = toolsTab.RibbonPanels.Add("Quick Seach", "QS", AddInClientID)
+            ''' Create a new panel.
+            'Dim customPanel As RibbonPanel = toolsTab.RibbonPanels.Add("Quick Seach", "QS", AddInClientID)
 
-            '' Add a button.
-            customPanel.CommandControls.AddButton(m_sampleButton, True)
+            ''' Add a button.
+            'customPanel.CommandControls.AddButton(m_sampleButton, True)
         End Sub
 
         Private Sub m_uiEvents_OnResetRibbonInterface(Context As NameValueMap) Handles m_uiEvents.OnResetRibbonInterface

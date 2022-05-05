@@ -30,8 +30,8 @@ Partial Class form
         Me.Label2 = New System.Windows.Forms.Label()
         Me.filesListView = New System.Windows.Forms.ListView()
         Me.fileName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.parentFolder = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -56,7 +56,7 @@ Partial Class form
         'buttonOpen
         '
         Me.buttonOpen.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonOpen.Location = New System.Drawing.Point(316, 1069)
+        Me.buttonOpen.Location = New System.Drawing.Point(573, 1069)
         Me.buttonOpen.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.buttonOpen.Name = "buttonOpen"
         Me.buttonOpen.Size = New System.Drawing.Size(248, 52)
@@ -67,7 +67,7 @@ Partial Class form
         'buttonPlace
         '
         Me.buttonPlace.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.buttonPlace.Location = New System.Drawing.Point(573, 1069)
+        Me.buttonPlace.Location = New System.Drawing.Point(317, 1069)
         Me.buttonPlace.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.buttonPlace.Name = "buttonPlace"
         Me.buttonPlace.Size = New System.Drawing.Size(248, 52)
@@ -117,14 +117,14 @@ Partial Class form
         Me.fileName.Text = "File Name"
         Me.fileName.Width = 500
         '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
         'parentFolder
         '
         Me.parentFolder.Text = "Parent Folder"
         Me.parentFolder.Width = 295
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
         'form
         '
