@@ -31,12 +31,13 @@ Partial Class form
         Me.filesListView = New System.Windows.Forms.ListView()
         Me.fileName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.parentFolder = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(18, 106)
+        Me.TextBox1.Location = New System.Drawing.Point(173, 155)
         Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(244, 26)
@@ -46,7 +47,7 @@ Partial Class form
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label1.Location = New System.Drawing.Point(14, 23)
+        Me.Label1.Location = New System.Drawing.Point(171, 39)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(67, 20)
@@ -81,7 +82,7 @@ Partial Class form
         Me.projectsList.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.projectsList.Enabled = False
         Me.projectsList.FormattingEnabled = True
-        Me.projectsList.Location = New System.Drawing.Point(16, 48)
+        Me.projectsList.Location = New System.Drawing.Point(173, 64)
         Me.projectsList.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.projectsList.Name = "projectsList"
         Me.projectsList.Size = New System.Drawing.Size(244, 28)
@@ -91,7 +92,7 @@ Partial Class form
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label2.Location = New System.Drawing.Point(14, 81)
+        Me.Label2.Location = New System.Drawing.Point(169, 130)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(108, 20)
@@ -105,9 +106,9 @@ Partial Class form
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.filesListView.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.fileName, Me.parentFolder})
         Me.filesListView.HideSelection = False
-        Me.filesListView.Location = New System.Drawing.Point(18, 149)
+        Me.filesListView.Location = New System.Drawing.Point(18, 237)
         Me.filesListView.Name = "filesListView"
-        Me.filesListView.Size = New System.Drawing.Size(803, 912)
+        Me.filesListView.Size = New System.Drawing.Size(803, 824)
         Me.filesListView.TabIndex = 7
         Me.filesListView.UseCompatibleStateImageBehavior = False
         Me.filesListView.View = System.Windows.Forms.View.Details
@@ -122,9 +123,13 @@ Partial Class form
         Me.parentFolder.Text = "Parent Folder"
         Me.parentFolder.Width = 295
         '
-        'OpenFileDialog1
+        'PictureBox1
         '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        Me.PictureBox1.Location = New System.Drawing.Point(455, 21)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(200, 200)
+        Me.PictureBox1.TabIndex = 8
+        Me.PictureBox1.TabStop = False
         '
         'form
         '
@@ -132,6 +137,7 @@ Partial Class form
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.ClientSize = New System.Drawing.Size(836, 1140)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.filesListView)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.projectsList)
@@ -142,6 +148,7 @@ Partial Class form
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "form"
         Me.Text = "Quick Search"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -155,6 +162,6 @@ Partial Class form
     Friend WithEvents Label2 As Windows.Forms.Label
     Friend WithEvents filesListView As Windows.Forms.ListView
     Friend WithEvents fileName As Windows.Forms.ColumnHeader
-    Friend WithEvents OpenFileDialog1 As Windows.Forms.OpenFileDialog
     Friend WithEvents parentFolder As Windows.Forms.ColumnHeader
+    Friend WithEvents PictureBox1 As Windows.Forms.PictureBox
 End Class

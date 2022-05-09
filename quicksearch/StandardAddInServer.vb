@@ -29,7 +29,7 @@ Namespace quicksearch
             Dim largeIcon As stdole.IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.Resources.Q)
             Dim smallIcon As stdole.IPictureDisp = PictureDispConverter.ToIPictureDisp(My.Resources.Resources.Q)
             Dim controlDefs As Inventor.ControlDefinitions = g_inventorApplication.CommandManager.ControlDefinitions
-            m_sampleButton = controlDefs.AddButtonDefinition("", "searchstart", CommandTypesEnum.kShapeEditCmdType, AddInClientID, , "Start search", largeIcon, largeIcon)
+            m_sampleButton = controlDefs.AddButtonDefinition("Open or Place " & vbCrLf & "Project Files", "searchstart", CommandTypesEnum.kShapeEditCmdType, AddInClientID, , "Start search", largeIcon, largeIcon)
 
             ' Add to the user interface, if it's the first time.
             If firstTime Then
