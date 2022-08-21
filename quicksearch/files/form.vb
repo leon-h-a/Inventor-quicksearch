@@ -109,6 +109,61 @@ Public Class form
     End Sub
 
     Private Sub buttonPlace_Click(sender As Object, e As EventArgs) Handles buttonPlace.Click
-        ' todo: place file into assembly
+        ' Set a reference to the assembly component definition.
+        ' This assumes an assembly document is open.
+        Dim oAsmCompDef As Inventor.AssemblyComponentDefinition
+        oAsmCompDef = g_inventorApplication.ActiveDocument.ComponentDefinition
+
+        ' Set a reference to the transient geometry object.
+        Dim oTG As Inventor.TransientGeometry
+        oTG = g_inventorApplication.TransientGeometry
+
+        ' Create the matrix. A new matrix is ​​initialized with an identity matrix.
+        Dim oMatrix As Inventor.Matrix
+        oMatrix = oTG.CreateMatrix
+
+        ' Set the rotation of the matrix to a 45 degree rotation about the Z axis.
+        'Call oMatrix.SetToRotation(3.14159265358979 / 4,
+        '                    oTG.CreateVector(0, 1, 0), oTG.CreatePoint(0, 0, 0))
+
+        ' Set the translation portion of the matrix so the part will be positioned
+        Call oMatrix.SetTranslation(oTG.CreateVector(0, -100, 0))
+
+        ' Add the occurrence.
+        Dim oOcc As Inventor.ComponentOccurrence
+
+        Dim selectedItems As Windows.Forms.ListView.SelectedListViewItemCollection
+        selectedItems = filesListView.SelectedItems()
+        For Each item In selectedItems
+            oOcc = oAsmCompDef.Occurrences.Add(item.subitems(2).Text, oMatrix)
+        Next
+
+        Me.Close()
+    End Sub
+
+    Private Sub filesListView_SelectedIndexChanged(sender As Object, e As EventArgs) Handles filesListView.SelectedIndexChanged
+        'if one selected and contains '.ipt'
+        'thumbnail=image
+        'else
+        'thumbnail=not available
+
+
+        'Dim oApprentice As New Inventor.ApprenticeServerComponent()
+
+        'If filesListView.SelectedItems.Count() = 1 Then
+        'Dim oApprenticeDoc As Inventor.ApprenticeServerDocument = oApprentice.Open(filesListView.SelectedItems(1).SubItems(2).Text)
+        'Dim oThumbnail As stdole.IPictureDisp = oApprenticeDoc.Thumbnail
+        'Dim img As Inventor.Image = Inventor.IPictureDispConverter.PictureDispToImage(oThumbnail)
+
+
+
+        'doc = apprentice.Open(filesListView.SelectedItems(1).SubItems(2).Text)
+        'summaryInfo = doc.PropertySets.Item("Inventor Summary Information")
+        'thumbProp = summaryInfo.Item("Thumbnail")
+        'thumbnail = thumbProp.Value
+        'Dim img As Image = VB6.IPictureDispToImage(thumbnail)
+
+        'Microsoft.VisualBasic.vb
+        'End If
     End Sub
 End Class
